@@ -17,7 +17,7 @@
   	May take arguments as input information.
       	Compute something.
 	May return a result.
-	*Functions can call functions.
+	*Functions can call functions.*
   Parameters and return values must have a type.
 
 # The entry point | main
