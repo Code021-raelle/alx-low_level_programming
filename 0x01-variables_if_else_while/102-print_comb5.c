@@ -14,7 +14,7 @@ int main(void)
    * This is a program that prints all possible different combinations
    * of two two-digit numbers
    */
-iñt a;
+int a;
 int b;
 int i;
 int j;
