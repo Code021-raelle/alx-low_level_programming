@@ -5,11 +5,8 @@
  *
  * Return - Always 0 (Success)
  */
-int main(void))
+int main(void)
 {
-  /*
-   * indicates successful program executiom
-   */
 int number;
 
 for (number = 0; number <= 9; number++)
@@ -23,8 +20,5 @@ putchar(' ');
 }
 putchar('\n');
 
-/*
- * Description: return value 0 signifies no errors
- */
 return (0);
 }
