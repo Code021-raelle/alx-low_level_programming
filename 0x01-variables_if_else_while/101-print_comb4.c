@@ -14,30 +14,30 @@ int main(void)
    * This is a program that prints all possible different combinations
    * of three digits
    */
-int i;
-int j;
-int k;
+	int i;
+	int j;
+	int k;
 
-for (i = 48; i < 58; i++)
-{
-for (j = 48; j < 58; j++)
-{
-for (k = 48; k < 58; k++)
-{
+	for (i = 48; i < 58; i++)
+	{
+		for (j = 48; j < 58; j++)
+		{
+			for (k = 48; k < 58; k++)
+			{
 
-if (i != j && i != k && k != j && i < j && j < k)
-{
-putchar(i);
-putchar(j);
-putchar(k);
-if (i == 55 && j == 56 && k == 57)
-continue;
-putchar(',');
-putchar(' ');
-}
-}
-}
-}
-putchar('\n');
-return (0);
+				if (i != j && i != k && k != j && i < j && j < k)
+				{
+					putchar(i);
+					putchar(j);
+					putchar(k);
+					if (i == 55 && j == 56 && k == 57)
+						continue;
+					putchar(',');
+					putchar(' ');
+				}
+			}
+		}
+	}
+	putchar('\n');
+	return (0);
 }
