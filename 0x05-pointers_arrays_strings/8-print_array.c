@@ -7,19 +7,19 @@
  * @n: elements of the array
  *
  * Return: Always not.
- * */
-void Print_array(int *a, int n)
+ */
+void Print_array(int *a, int n) /* void */
 {
-	int x;
-
-	for (x = 0 ; x < n; x++)
+	for (int i = 0; i < n; i++)
 	{
-		printf("%d", a[x]);
-		if (x != n - 1)
+		printf("%d", a[i]);
+
+		if (i < n - 1)
 		{
 			printf(", ");
 		}
 	}
+
 	printf("\n");
 }
 
