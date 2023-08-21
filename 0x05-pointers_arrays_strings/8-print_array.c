@@ -6,23 +6,20 @@
  * @a: array name
  * @n: elements of the array
  *
- * Return: Always void.
- */
+ * Return: Always not.
+ * */
 void Print_array(int *a, int n)
 {
-	int i = 0;
+	int x;
 
-	for (i = 0; i < n; i++)
+	for (x = 0 ; x < n; x++)
 	{
-		if (i != (n - 1))
+		printf("%d", a[x]);
+		if (x != n - 1)
 		{
-			printf("%d, ", a[i]);
-		}
-		else
-		{
-			printf("%d", a[i]);
+			printf(", ");
 		}
 	}
-	printf('\n');
+	printf("\n");
 }
 
