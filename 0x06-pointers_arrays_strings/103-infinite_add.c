@@ -1,63 +1,43 @@
 #include "main.h"
-#include <stdio.h>
-#include <string.h>
 
 /**
- * reverse_string - Reverses a string in-place.
- * @str: The string to be reversed.
+ * infinite_add - Adds two numbers
+ * @n1: pointer to the first character of number 1.
+ * @n2: pointer to the second character of number 2.
+ * @r: Buffer where to write the result.
+ * @n: Buffer size.
+ *
+ * Return: Pointer to the result of the string
  */
-void reverse_string(char *str)
+char *infinite_add(char *n1, char *n2, char *r, int n)
 {
-	int length = strlen(str);
-	int i, j;
+	int len1 = 0, len 2 = 0;
+	int add = 0;
+	int i = n - 2;
 
-	for (i = 0, j = length - 1; i < j; i++; j--)
+	while (n1[len1 + 1] != 0)
+		len1++;
+	while (n2[len2 + 1] != 0)
+		len2++;
+	r[n - 1] = 0;
+
+	while (i >= 0 && (len1 >= 0 || len2 >= 0))
 	{
-		char temp = str[i];
-
-		str[i] = str[j];
-		str[j] = temp;
-	}
-}
-
-/**
- * infinite_add - Adds two numbers represented as strings.
- * @n1: The first number as a string.
- * @n2: The second number as a string.
- * @r: The buffer to store the result.
- * @size_r: The size of the buffer.
- * Return: A pointer to the result, or 0 if the result can't be stored.
- */
-char infinite_add(char *n1, char *n2, char *r, int size_r)
-{
-	int carry = 0;
-	int i = 0;
-
-	while (*n1 != '\0' || *n2 != '\0' || carry != 0)
-	{
-		int digit1 = (*n1 != '\0') ? (*n1 - '0') : 0;
-		int digit2 = (*n2 != '\0') ? (*n1 - '0') : 0;
-		int sum = digit1 + digit2 + carry;
-
-		if (i < size_r - 1)
-		{
-			r[i] = (sum % 10) + '0';
-			carry = sum / 10;
-			i++;
-		}
-		else
-		{
-			return (0);
-		}
-
-		if (*n1 != '\0')
-			n1++;
-		if (*n2 != '\0')
-			n2++;
+		add += (len1 < 0 ? '0' : n1[len1]) + (len2 < 0 ? '0' : n2[len2]);
+		add -= 2 * '0';
+		r[i] = add % 10 + '0';
+		add /= 10;
+		i--;
+		len1--;
+		len2--;
 	}
 
-	r[i] = '\0';
-	reverse_string(r);
-	return (r);
+	if ((i < len1 || i < len2) || (i < 0 && add))
+		return (0);
+
+	add ? r[i] = add + '0' : 1;
+	i += add ? 0 : 1;
+
+	return (r + i);
 }
 
