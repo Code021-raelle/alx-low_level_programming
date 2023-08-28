@@ -8,15 +8,21 @@
  */
 void print_diagsums(int *a, int size)
 {
-	int i, diag1_sum = 0, diag2_sum = 0;
+	int i;
+	int t1 = 0;
+	int tr = 0;
+	int s = size * size;
 
-	for (i = 0; i < size; i++)
+	for (i = 0; i < s; i += size + 1)
 	{
-		diag1_sum += a[i * size + i];
-		diag2_sum += a[i * size + (size - i - 1)];
+		t1 += a[i];
 	}
 
-	printf("Sum of main diagonal: %d\n", diag1_sum);
-	printf("Sum of secondary diagonal: %d\n", diag2_sum);
+	for (i = size - 1; i < s - 1; i += size - 1)
+	{
+		tr += a[i];
+	}
+
+	printf("%d, %d\n", tl, tr);
 }
 
