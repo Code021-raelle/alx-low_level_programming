@@ -8,7 +8,7 @@
  * Return: A pointer to the beginning of the located substring, or NULL if not
  * found.
  */
-char *strstr(char *haystack, char *needle)
+char *_strstr(char *haystack, char *needle)
 {
 	unsigned int i = 0, j = 0;
 
