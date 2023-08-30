@@ -1,27 +1,22 @@
 #include "main.h"
-#include <unistd.h>
 
 /**
- * _putchar - Writes a character to the standard output.
- * @c: The character to be written
- */
-void _putchar(char c)
-{
-	write(1, &c, 1);
-}
-
-/**
- * _print_rev_recursion - Prints a string in reverse.
- * @s: The input string.
+ * _print_rev_recursion - function that prints a string in reverse.
+ * @s: String literal to print reverse.
+ *
+ * Return: Always void.
  */
 void _print_rev_recursion(char *s)
 {
 	if (*s == '\0')
 	{
-		return;
+		s--;
 	}
-
-	_print_rev_recursion(s + 1);
-	_putchar(*s);
+	else
+	{
+		_print_rev_recursion(++s);
+		s--;
+		_putchar(*s);
+	}
 }
 
