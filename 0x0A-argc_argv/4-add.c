@@ -3,52 +3,39 @@
 #include <string.h>
 
 /**
- * num_checker - checks if a given char is number or not
- * @a: char to be checked
- * Return: 1, if its a number, else 0
- */*
-int num_checker(char *a)
-{
-	int i, num, len;
-
-	i = 0;
-	num = 0;
-	len = strlen(a);
-	while (i < len)
-	{
-		if (a[i] < '0' || a[i] > '9')
-		{
-			return (-1);
-		}
-		else
-			num = num * 10 + (a[i] - '0');
-		i++;
-	}
-	return (num);
-}
-/**
- * main - add positive numbers
- * @argc: argument count
- * @argv: array of pointers to argument strings
- * Return: result of addition or 1
+ * main - program that add two positive numbers
+ * @argc: number of command lines argument.
+ * @argv: character of arrays.
+ *
+ * Return: 0 when both numbers pass or 1 for error, when are not digits
  */
-
 int main(int argc, char *argv[])
 {
-	int i, num, sum;
+	int i, j;
+	unsigned long int sum = 0;
 
-	sum = 0;
-	for (i = 1; i < argc; i++)
+	if (argc == 1)
 	{
-		num = num_checker(argv[i]);
-		if (num == -1)
-		{
-			printf("Error\n");
-			return (1);
-		}
-		sum += num;
+		printf("0\n");
 	}
-	printf("%d\n", sum);
+	else if (argc > 1)
+	{
+		for (i = 1; i < argc; i++)
+		{
+			for (j = 0; *(argv[i] + j) != '\0'; j++)
+			{
+				if (argv[i][j] >= '0' && argv[i][j] <= '9')
+					continue;
+				else
+				{
+					printf("Error\n");
+					return (1);
+				}
+			}
+			sum += atoi(argv[i]);
+		}
+		printf("%lu\n", sum);
+	}
 	return (0);
 }
 
