@@ -41,7 +41,7 @@ char *_strncat(char *dest, char *src, int n);
 char *_strncpy(char *dest, char *src, int n);
 
 /*Function that compare strings*/
-int *_strcmp(char *s1, char *s2);
+int _strcmp(char *s1, char *s2);
 
 /*Function to fill memory with constant byte*/
 char *_memset(char *s, char b, unsigned int n);

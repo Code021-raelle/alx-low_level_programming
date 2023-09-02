@@ -7,7 +7,7 @@
  *
  * Return: a string of characters.
  */
-chat *_strcat(char *dest, char *src)
+char *_strcat(char *dest, char *src)
 {
 	int len = 0;
 	int i;
