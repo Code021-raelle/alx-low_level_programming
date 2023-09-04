@@ -3,32 +3,29 @@
 #include <stdlib.h>
 
 /**
- * create_array - function to create an array and initialize with a char.
+ * create_array - creates an array of chars and initialize it with a char.
  * @size: size of the array.
- * c: Initialize char for the array.
+ * @c: Initialize char for the array.
  *
- * Return: pointer to the array. NULL if size is 0 or fails.
+ * Return: pointer to array or null.
  */
 
 char *create_array(unsigned int size, char c)
 {
+	char *str;
 	unsigned int i;
-	char *ptr;
 
-	ptr = malloc(sizeof(char) * size);
-
-	if (size == 0 || ptr == NULL)
+	if (size == 0)
+		return (NULL);
+	str = malloc(sizeof(char) * size);
+	if (str == NULL)
+		return (NULL);
+	i = 0;
+	while (i < size)
 	{
-		return ('\0');
+		str[i] = c;
+		i++;
 	}
-	else
-	{
-		for (i = 0; i < size; i++)
-		{
-			ptr[i] = c;
-		}
-		return (ptr);
-	}
-	return ('\0');
+	return (str);
 }
 
