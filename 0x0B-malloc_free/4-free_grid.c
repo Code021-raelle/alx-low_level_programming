@@ -2,12 +2,12 @@
 #include <stdlib.h>
 
 /**
- * free_grid - frees a 2D integer grid priviously created by alloc_grid
+ * free_grid - frees a 2D integer grid.
  * @grid: pointer to array of ints
  * @height: number of rows
  * Return: nothing, frees memory
  */
-void free_grid(int **grid int height)
+void free_grid(int **grid, int height)
 {
 	int i;
 
