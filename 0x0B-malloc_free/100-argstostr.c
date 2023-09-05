@@ -10,50 +10,36 @@
  */
 char *argstostr(int ac, char **av)
 {
+	char *ptr;
+	int i, j;
+	int k = 0;
+	int m_total = 0;
+
 	if (ac == 0 || av == NULL)
 	{
 		return (NULL);
 	}
-
-	int total_length = 0;
-
-	for (int i = 0; i < ac; i++)
+	for (i = 0; i < ac; i++)
 	{
-		char *arg = av[i];
-
-		while (*arg)
+		for (j = 0; av[i][j] != 0; j++)
 		{
-			total_length++;
-			arg++;
+			continue;
 		}
-		total_length++;
+		m_total += j;
 	}
-
-	char *concatenated = (char *)malloc(total_length + 1);
-
-	if (concatenated == NULL)
-	{
+	ptr = malloc(sizeof(char) * (m_total + ac + 1));
+	if (ptr == NULL)
 		return (NULL);
-	}
-
-	int position = 0;
-
-	for (int i = 0; i < ac; i++)
+	for (i = 0; i < ac; i++)
 	{
-		char *arg = av[i];
-
-		while (*arg)
+		for (j = 0; av[i][j] != '\0'; j++)
 		{
-			concatenated[position] = *arg;
-			position++;
-			arg++;
+			ptr[k] = av[i][j];
+			k++;
 		}
-		concatenated[position] = '\n';
-		position++;
+		ptr[k] = '\n';
+		k++;
 	}
-
-	concatenated[total_length] = '\0';
-
-	return (concatenated);
+	return (ptr);
 }
 
