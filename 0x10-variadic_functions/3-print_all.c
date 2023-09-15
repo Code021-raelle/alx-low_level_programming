@@ -1,6 +1,7 @@
 #include "variadic_functions.h"
 #include <stdarg.h>
 #include <stdio.h>
+
 /**
  * chk_char - prints the char character
  * @list: the type
@@ -50,36 +51,45 @@ void chk_string(va_list list)
  */
 void print_all(const char * const format, ...)
 {
-	check_t types[] = {
-		{"c", chk_char},
-		{"i", chk_int},
-		{"f", chk_float},
-		{"s", chk_string},
-		{NULL, NULL}
-	};
+	va_list printall;
+	unsigned int x = 0, y, e = 0;
+	char *put;
+	const char s_arg[] = "cifs";
 
-	int x = 0, y = 0;
-	va_list list;
-	char *sep = "";
-
-	va_start(list, format);
-
+	va_start(printall, format);
 	while (format && format[x])
 	{
-		while (types[y].chk)
-		{
-			if (format[x] == *types[y].chk)
-			{
-				printf("%s", sep);
-				types[y].f(list);
-				sep = ", ";
-			}
-			y++;
-		}
 		y = 0;
-		x++;
+		while (s_arg[y])
+		{
+			if (format[x] == s_arg[y] && e)
+			{
+				printf(", ");
+				break;
+			} y++;
+		}
+		switch (format[x])
+		{
+			case 'c':
+				printf("%c", va_arg(printall, int)), e = 1;
+				break;
+			case 'i':
+				printf("%d", va_arg(printall, int)), e = 1;
+				break;
+			case 'f':
+				printf("%f", va_arg(printall, double)), e = 1;
+				break;
+			case 's':
+				put = va_arg(printall, char*), e = 1;
+				if (!put)
+				{
+					printf("(nil)");
+					break;
+				}
+				printf("%s", put);
+				break;
+		} x++;
 	}
-	printf("\n");
-	va_end(list);
+	printf("\n"), va_end(printall);
 }
 
