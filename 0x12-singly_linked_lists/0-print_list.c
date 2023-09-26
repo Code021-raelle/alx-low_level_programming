@@ -31,7 +31,10 @@ size_t print_list(const list_t *h)
 /**
  * _strlen - finds string length
  * @str: string
+<<<<<<< HEAD
  *
+=======
+>>>>>>> cc0534b0cc54afd9659104b07271298c9c0feaa1
  * Return: length of string
  */
 int _strlen(char *str)
