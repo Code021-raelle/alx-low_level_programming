@@ -34,8 +34,7 @@ int copy_file(char *file_to, char *file_from)
 
 	re = read(from, buf, 1024);
 
-	do
-	{
+	do {
 		if (re == -1)
 			error_file_from(file_from, buf);
 		if (re == 0)
