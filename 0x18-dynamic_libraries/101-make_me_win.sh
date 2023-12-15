@@ -1,4 +1,3 @@
 #!/bin/bash
-export LD_PRELOAD=/tmp/librand.so
-./gm 9 8 10 24 75 9
-
+gcc -shared -o librand.so -fPIC rand.c
+export LD_PRELOAD=./librand.so:$LD_LIBRARY_PATH
