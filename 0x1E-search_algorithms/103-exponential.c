@@ -1,5 +1,7 @@
 #include "search_algos.h"
 
+int binary_search_exponential(int *array, size_t low, size_t high, int value);
+
 /**
  * exponential_search - Searches for a value in a sorted array of integers
  *                      using Exponential search algorithm

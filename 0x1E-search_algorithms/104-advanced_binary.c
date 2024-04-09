@@ -1,6 +1,8 @@
 #include "search_algos.h"
 #include <stdio.h>
 
+int advanced_binary_recursive(int *array, size_t low, size_t high, int value);
+
 /**
  * advanced_binary_recursive - Searches for a value in a sorted array of
  *                             integers using the binary search algorithm
